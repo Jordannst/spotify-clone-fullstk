@@ -1,8 +1,7 @@
 import multer from "multer";
 
 const storage = multer.diskStorage({
-  filename: (req, file, callback) => {
-    console.log(file);
+  filename: function (req, file, callback) {
     callback(null, file.originalname);
   },
 });
