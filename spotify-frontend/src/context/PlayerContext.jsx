@@ -63,6 +63,7 @@ const PlayerContetProvider = (props) => {
       audioRef.current.duration;
   };
 
+  // progress bar
   useEffect(() => {
     setTimeout(() => {
       audioRef.current.ontimeupdate = () => {
