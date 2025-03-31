@@ -55,7 +55,6 @@ const AddSong = () => {
             formData.append('audio', song);
             formData.append('album', album);
             
-            
             const response = await axios.post(`${url}/api/song/add`, formData);
                 
             // Set to 100% when upload is complete
@@ -151,22 +150,22 @@ const AddSong = () => {
 
             <div className='flex flex-col gap-2.5'>
                 <p>Song name</p>
-                <input onChange={(e) => setName(e.target.value)} value={name} className="bg-transparent outline-green-600 border-2 border-gray-400 p-2.5 w-[40vw] min-w-[250px]" placeholder="Type Here" type="text" required />
+                <input onChange={(e) => setName(e.target.value)} value={name} className="bg-transparent rounded outline-green-600 border-2 border-gray-400 p-2.5 w-[40vw] min-w-[250px]" placeholder="Type Here" type="text" required />
             </div>
 
             <div className='flex flex-col gap-2.5'>
                 <p>Song description</p>
-                <input onChange={(e) => setDesc(e.target.value)} value={desc} className="bg-transparent outline-green-600 border-2 border-gray-400 p-2.5 w-[40vw] min-w-[250px]" placeholder="Type Here" type="text" required />
+                <input onChange={(e) => setDesc(e.target.value)} value={desc} className="bg-transparent rounded outline-green-600 border-2 border-gray-400 p-2.5 w-[40vw] min-w-[250px]" placeholder="Type Here" type="text" required />
             </div>
 
             <div className='flex flex-col gap-2.5'>
                 <p>Album</p>
-                <select onChange={(e) => setAlbum(e.target.value)} value={album} className='bg-transparent outline-green-600 border-2 border-gray-400 p-2.5 w-[150px] '>
+                <select onChange={(e) => setAlbum(e.target.value)} value={album} className='bg-transparent rounded-2xl outline-green-600 border-2 border-gray-400 p-2.5 w-[150px] '>
                     <option value="none">None</option>
                 </select> 
             </div>
 
-            <button type='submit' className='text-base bg-black text-white py-2.5 px-14 cursor-pointer rounded hover:bg-gray-800 hover:scale-105 active:scale-95 transition'>Add</button>
+            <button type='submit' className='text-base bg-black text-white py-2.5 px-14 cursor-pointer rounded-2xl hover:bg-gray-800 hover:scale-105 active:scale-95 transition'>Add</button>
         </form>
     );
 };

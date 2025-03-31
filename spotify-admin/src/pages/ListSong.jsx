@@ -72,7 +72,7 @@ const ListSong = () => {
                             <p>{item.duration}</p>
                             <button
                                 onClick={() => handleDeleteClick(item._id)}
-                                className="bg-green-600 text-white px-1 py-1 mr-5 rounded cursor-pointer hover:bg-green-700 hover:scale-103 active:scale-95"
+                                className="bg-red-600 text-white px-1 py-1 mr-5 rounded cursor-pointer hover:bg-red-700 hover:scale-103 active:scale-95"
                             >
                                 Delete
                             </button>
@@ -90,13 +90,13 @@ const ListSong = () => {
                         <div className="flex justify-end space-x-3">
                             <button
                                 onClick={cancelDelete}
-                                className="px-4 py-2 border border-gray-300 rounded hover:bg-gray-100"
+                                className="px-4 py-2 border border-gray-300 rounded hover:bg-gray-100 cursor-pointer"
                             >
                                 Cancel
                             </button>
                             <button
                                 onClick={confirmDelete}
-                                className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
+                                className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 cursor-pointer"
                             >
                                 Delete
                             </button>
