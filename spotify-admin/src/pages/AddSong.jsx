@@ -13,7 +13,7 @@ const AddSong = () => {
     const [loading, setLoading] = useState(false);
     const [uploadProgress, setUploadProgress] = useState(0);
     const [isUploading, setIsUploading] = useState(false);
-    // const [albumData, setAlbumData] = useState([]);
+    const [albumData, setAlbumData] = useState([]);
 
     
     useEffect(() => {
@@ -85,6 +85,27 @@ const AddSong = () => {
             setIsUploading(false);
         }
     }
+
+    const loadAlbumData = async () => {
+        
+        try {
+
+            const response = await axios.get(`${url}/api/album/list`);
+
+            if (response.data.success) {
+                setAlbumData(response.data.albums);
+            } else {
+                toast.error("Unable to load albums data")
+            }
+
+        } catch (error) {
+            toast.error("Error Occured", error)
+        }
+    }
+
+    useEffect(() => {
+        loadAlbumData();
+    },[])
 
     const formatFileSize = (size) => {
         if (size < 1024) return size + ' B';
@@ -162,6 +183,7 @@ const AddSong = () => {
                 <p>Album</p>
                 <select onChange={(e) => setAlbum(e.target.value)} value={album} className='bg-transparent rounded-2xl outline-green-600 border-2 border-gray-400 p-2.5 w-[150px] '>
                     <option value="none">None</option>
+                    {albumData.map((item, index) =>(<option key={index} value={item.name}>{item.name}</option>))}
                 </select> 
             </div>
 
