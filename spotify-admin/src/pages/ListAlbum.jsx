@@ -70,7 +70,7 @@ const ListAlbum = () => {
                             <img className="w-12" src={item.image} alt="" />
                             <p>{item.name}</p>
                             <p>{item.desc}</p>
-                            <input type="color" value={item.bgColour} readOnly disabled />
+                            <input type="color" value={item.bgColor} readOnly disabled />
                             <button
                                 onClick={() => handleDeleteClick(item._id)}
                                 className="bg-red-600 text-white px-1 py-1 mr-5 rounded cursor-pointer hover:bg-red-700 hover:scale-103 active:scale-95"
