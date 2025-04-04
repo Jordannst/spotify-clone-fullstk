@@ -41,25 +41,33 @@ const PlayerContetProvider = (props) => {
   };
 
   const playWithId = async (id) => {
-    await setTrack(songsData[id]);
+    await songsData.map((item) => {
+      if (id === item._id) {
+        setTrack(item);
+      }
+    })
     await audioRef.current.play();
     setPlayStatus(true);
   };
 
   const previous = async () => {
-    if (track.id > 0) {
-      await setTrack(songsData[track.id - 1]);
+   songsData.map(async (item, index) => {
+    if (track._id === item._id && index > 0){
+      await setTrack(songsData[index - 1]);
       await audioRef.current.play();
-      setPlayStatus(true);
+      setPlayStatus(true)
     }
+   })
   };
 
   const next = async () => {
-    if (track.id < songsData.length - 1) {
-      await setTrack(songsData[track.id + 1]);
-      await audioRef.current.play();
-      setPlayStatus(true);
-    }
+    songsData.map(async (item, index) => {
+      if (track._id === item._id && index < songsData.length - 1) {
+        await setTrack(songsData[index + 1]);
+        await audioRef.current.play();
+        setPlayStatus(true)
+      }
+    })
   };
 
   const seekSong = async (e) => {
